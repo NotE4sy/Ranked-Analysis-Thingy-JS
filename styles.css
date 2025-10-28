@@ -1,0 +1,19 @@
+body {
+    background-color:#202F3D
+}
+h1 {
+    color: antiquewhite;
+    font-family: Minecraftia;
+}
+.bubble {
+    background-color: #18232e;
+    width: 450px;
+    height: 150px;
+    margin: auto;
+    border-radius: 25px;
+    padding: 10px;
+}
+@font-face {
+  font-family: Minecraftia;
+  src: "/Minecraftia-Regular.ttf";
+}
