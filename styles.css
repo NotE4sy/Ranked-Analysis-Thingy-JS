@@ -72,3 +72,14 @@ hr {
     border-bottom-width: 4px;
     border-radius: 25px;
 }
+.gamemodeButton {
+    background-color: #18232e;
+    color: white;
+    font-family: "Minecraftia";
+    width: 200px;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
