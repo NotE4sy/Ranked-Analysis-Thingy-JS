@@ -1,19 +1,61 @@
+@font-face {
+  font-family: Minecraftia;
+  src: url("Minecraftia.woff2");
+}
 body {
-    background-color:#202F3D
+    background-color:#202F3D;
 }
 h1 {
-    color: antiquewhite;
-    font-family: Minecraftia;
+    color: white;
+    font-family: "Minecraftia";
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    color: white;
+    font-family: "Minecraftia";
+    font-size: 21px;
+}
+h3 {
+    color: white;
+    font-family: "Minecraftia";
+    font-size: 14px;
+}
+#nameplate {
+    width: 480px;
+    height: 150px;
+    margin-bottom: 40px;
 }
 .bubble {
     background-color: #18232e;
-    width: 450px;
-    height: 150px;
     margin: auto;
     border-radius: 25px;
-    padding: 10px;
+    padding: 8px;
+    width: 425px;
+    height: 500px;
 }
-@font-face {
-  font-family: Minecraftia;
-  src: "/Minecraftia-Regular.ttf";
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+}
+li {
+  float: left;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+td {
+    padding-left: 8px;
+}
+.dataIcon {
+    width: 48px;
+    height: 48px;
+}
+table {
+    float: left;
 }
