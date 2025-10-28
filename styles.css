@@ -22,6 +22,7 @@ h3 {
     color: white;
     font-family: "Minecraftia";
     font-size: 14px;
+    line-height: 1.4;
 }
 #nameplate {
     width: 480px;
@@ -33,7 +34,7 @@ h3 {
     margin: auto;
     border-radius: 25px;
     padding: 8px;
-    width: 425px;
+    width: 440px;
     height: 500px;
 }
 ul {
@@ -44,7 +45,7 @@ ul {
 }
 li {
   float: left;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +57,18 @@ td {
     width: 48px;
     height: 48px;
 }
+.bastionDataIcon {
+    width: 48px;
+    height: 56px;
+}
 table {
     float: left;
+}
+hr {
+    height: 0px;
+    border: 0px solid #202F3D;
+    color: #202F3D;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-radius: 25px;
 }
