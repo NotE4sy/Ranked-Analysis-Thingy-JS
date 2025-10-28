@@ -22,12 +22,19 @@
        </div>
 
        <!--Config UI-->
-       <div style="position: relative;">
-        <button class="gamemodeButton">Ranked</button>
+       <div class="configUI">
+            <div class="gamemodeDiv">
+                <button class="gamemodeButton" style="margin-right: 10px;">Ranked</button>
+                <button class="gamemodeButton" style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">Private</button>
+            </div>
+            <div style="width: 15%; flex: 1;display: flex; justify-content: center; align-items: center; gap: 20px">
+                <input type="range" min="1" max="50" value="20" class="matchCountSlider" id="myRange">
+                <h3 style="width: 100%;">Matches: 20</h3>
+            </div>
        </div>
 
        <!--Data sections-->
-       <div style="display: flex; justify-content: center; align-items: center;">
+       <div style="display: flex; justify-content: center; align-items: center; margin-top: 25px;">
         <ul>
             <!--Splits-->
             <li>
