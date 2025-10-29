@@ -1,5 +1,6 @@
 // Variables
 let gamemode = 0;
+let previousName = "Type ign to search";
 
 const matchCountLimit = 50;
 
@@ -61,11 +62,13 @@ if (currentPath) {
 
 PlayerName.addEventListener("blur", function() {
     const text = PlayerName.innerText.trim();
+    if (text == previousName) return;
     if (text) {
         history.pushState({}, '', '/' + encodeURIComponent(text));
     } else {
         history.pushState({}, '', '/');
     }
+    previousName = text;
     PlayerModel.src = "https://starlightskins.lunareclipse.studio/render/default/" + text + "/face";
     call_Ranked_GetUser(text);
 })
