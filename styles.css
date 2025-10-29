@@ -62,6 +62,7 @@ td {
 }
 table {
     float: left;
+    padding-right: 30px;
 }
 hr {
     height: 0px;
