@@ -43,13 +43,11 @@ ul {
   margin: 0;
   padding: 0px;
   overflow: hidden;
+  text-align: center;
 }
 li {
-  float: left;
   padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
 }
 td {
     padding-left: 8px;
