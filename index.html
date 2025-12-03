@@ -4,6 +4,7 @@
         <title id="pageTitle">Home | Ranked Analysis</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
@@ -11,7 +12,7 @@
         <!--Nameplate-->
         <div class="bubble" id="nameplate">
             <div style="float: left; width: 34%;border: 2px;" id="playerModelContainer">
-                <img src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="playerModel">
+                <img class="playerModel" src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="playerModel">
             </div>
             <div style="float: left; width: 65%;height: 45%;" id="playerNameContainer">
                 <input id="playerName" placeholder="(Search For Player)" autocomplete="off">
@@ -23,7 +24,7 @@
             </div>
             
             <div style="align-items: center; text-align: center; justify-content: center; width: 50%; margin: auto;display: none;" id="nameplateLoading">
-                <img id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing" style="width: 128px;height: 128px;">
+                <img class="parrot" id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing">
             </div>
         </div>
 
@@ -40,7 +41,7 @@
             </div>
             <div style="width: 250px; flex: 1;display: flex; justify-content: center; align-items: center; gap: 20px" id="matchCountChanger">
                 <input type="range" min="1" max="50" value="20" class="slider" id="matchCountSlider">
-                <h3 style="width: 50px;">Matches:</h3>
+                <h3 style="width: 50px;max-width: 8vw;">Matches:</h3>
                 <input id="MatchCount" placeholder="20" autocomplete="off">
             </div>
             <div id="versus">
@@ -51,7 +52,7 @@
         <!--Loading screen-->
         <div id="loadingScreen">
             <h1 id="loadingText" style="display: none;">Loading . .</h1>
-            <img id="loadingParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing" style="width: 128px;height: 128px;display: none;">
+            <img class="parrot" id="loadingParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing" style="width: 128px;height: 128px;display: none;">
         </div>
 
         <!--Data sections-->
@@ -218,10 +219,10 @@
         <!--Versus Nameplates-->
         <div class="versusContainers">
             <!--Versus Nameplate player 1-->
-            <div style="margin-right: 5%;">
+            <div style="margin-right: 1.5vw;">
                 <div class="bubble" id="nameplatePlayer1">
                     <div style="float: left; width: 34%;border: 2px;" id="playerModelContainer">
-                        <img src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="versus_playerModel1">
+                        <img class="playerModel" src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="versus_playerModel1">
                     </div>
                     <div style="float: left; width: 65%;height: 45%;" id="playerNameContainer">
                         <input id="versus_playerName1" placeholder="(Search For Player)" autocomplete="off">
@@ -233,7 +234,7 @@
                     </div>
                     
                     <div style="align-items: center; text-align: center; justify-content: center; width: 50%; margin: auto;display: none;" id="nameplateLoading">
-                        <img id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing" style="width: 128px;height: 128px;">
+                        <img class="parrot" id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing">
                     </div>
                 </div>
                 <div id="versus_config1">
@@ -255,7 +256,7 @@
             </div>
 
             <!--Versus Nameplate player 2-->
-            <div style="margin-left: 5%;">
+            <div style="margin-left: 1.5vw;">
                 <div class="bubble" id="nameplatePlayer2">
                     <div style="float: left; width: 65%;height: 45%;margin-left: 10px;" id="playerNameContainer">
                         <input id="versus_playerName2" placeholder="(Search For Player)" autocomplete="off">
@@ -267,11 +268,11 @@
                     </div>
 
                     <div style="float: right; width: 34%;border: 2px;margin-top: -14%;" id="playerModelContainer">
-                        <img src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="versus_playerModel2" style="-webkit-transform: scaleX(-1);transform: scaleX(-1);">
+                        <img class="playerModel" src="images/defaultSkin.webp" onerror="this.onerror=null; this.src='images/defaultSkin.webp'"; alt="Player Model" width="150" height="140" id="versus_playerModel2" style="-webkit-transform: scaleX(-1);transform: scaleX(-1);">
                     </div>
                     
                     <div style="align-items: center; text-align: center; justify-content: center; width: 50%; margin: auto;display: none;" id="nameplateLoading">
-                        <img id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing" style="width: 128px;height: 128px;">
+                        <img class="parrot" id="nameplateParrot" src="gifs/BlueParrotDancing.gif" alt="Blue Parrot Dancing">
                     </div>
                 </div>
                 <div id="versus_config2">
@@ -295,7 +296,7 @@
 
         <div class="versusContainers">
             <!--Versus Data sections player 1-->
-            <div style="margin-right: 5%;margin-top: 2%;">
+            <div style="margin-right: 1.5vw;margin-top: 2%;">
                 <ul id="versus_data1">
                     <!--Splits-->
                     <li>
@@ -449,7 +450,7 @@
             </div>
 
             <!--Versus Data sections player 2-->
-            <div style="margin-left: 6%;margin-top: 2%;">
+            <div style="margin-left: 2vw;margin-top: 2%;">
                 <ul id="versus_data2">
                     <!--Splits-->
                     <li>

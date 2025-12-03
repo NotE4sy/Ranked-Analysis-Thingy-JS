@@ -50,6 +50,7 @@ h3 {
     height: 150px;
     margin-bottom: 40px;
     margin-top: 30px;
+    max-width: 90%;
 }
 .versusContainers {
     display: flex;
@@ -66,7 +67,7 @@ h3 {
     margin:0%;
     margin-bottom: 40px;
     display: none;
-    margin-top: -65px;
+    max-width: 90%;
 }
 #nameplatePlayer2 {
     width: 480px;
@@ -74,19 +75,21 @@ h3 {
     margin:0%;
     margin-bottom: 40px;
     display: none;
-    margin-top: -65px;
     margin-left: 5%;
+    max-width: 90%;
 }
 #versus_config1 {
     display: none;
     gap: 15px;
-    width: 100%;
+    width: 480px;
+    max-width: 90%;
     margin-right: 5%;
 }
 #versus_config2 {
     display: none;
     gap: 15px;
-    width: 100%;
+    width: 480px;
+    max-width: 90%;
     margin-left: 5%;
 }
 .bubble {
@@ -97,6 +100,7 @@ h3 {
     width: 450px;
     height: 550px;
     display: block;
+    max-width: 92vw;
 }
 #MatchCount, #versus_matchCount1, #versus_matchCount2 {
     background-color: #18232e;
@@ -112,8 +116,10 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0px;
-  overflow: hidden;
   text-align: center;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: scroll;
 }
 #versus_data1 {
     list-style-type: none;
@@ -143,6 +149,8 @@ td {
 .dataIcon {
     width: 48px;
     height: 48px;
+    max-width: 10vw;
+    height: auto;
 }
 .bastionDataIcon {
     width: 48px;
@@ -195,6 +203,12 @@ hr {
 #versusButton {
     border-radius: 25px;
     width: 100%;
+}
+.parrot {
+    width: 128px;
+    height: 128px;
+    max-width: 30vw;
+    max-height: 30vw;
 }
 button {
     background-color: #202F3D;
@@ -304,4 +318,73 @@ button {
     margin-top: 20px;
     margin-left: 16px;
     display: none;
+}
+@media screen and (max-width:1023px) {
+    .versusContainers {
+        display: block;
+        justify-content: center;
+    }
+
+    #nameplatePlayer1 {
+        margin-bottom: 2vh;
+    }
+
+    #nameplatePlayer2 {
+        margin-top: 6vh;
+        float: right;
+        margin-bottom: 2vh;
+    }
+
+    #versus_config1 {
+        height: 5vh;
+    }
+
+    #versus_config2 {
+        height: 5vh;
+        float: right;
+        margin-bottom: 4vh;
+    }
+
+    #matchCountSlider {
+        width: 20vw;
+    }
+
+    #versus_data2 {
+        float: right;
+    }
+}
+@media screen and (max-width:470px) {
+    h1 {
+        font-size: 6vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    h3 {
+        font-size: 2.55vw;
+    }
+
+    input {
+        font-size: 24px;
+    }
+
+    .playerModel {
+        width: 28vw;
+        height: auto;
+    }
+
+    #nameplate, #nameplatePlayer1, #nameplatePlayer2 {
+        max-height: 13vh;
+    }
+
+    #configUI {
+        width: 90vw;
+        height: 5vh;
+    }
+
+    #matchCountSlider {
+        width: 20vw;
+    }
 }
