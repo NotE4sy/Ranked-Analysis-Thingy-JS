@@ -352,8 +352,11 @@ button {
     #versus_data2 {
         float: right;
     }
-}
-@media screen and (max-width:470px) {
+
+    #matchCountSlider {
+        width: 20vw;
+    }
+
     h1 {
         font-size: 6vw;
     }
@@ -363,7 +366,7 @@ button {
     }
 
     h3 {
-        font-size: 2.55vw;
+        font-size: 2.4vw;
     }
 
     input {
@@ -376,7 +379,7 @@ button {
     }
 
     #nameplate, #nameplatePlayer1, #nameplatePlayer2 {
-        max-height: 13vh;
+        max-height: 14vh;
     }
 
     #configUI {
@@ -384,7 +387,7 @@ button {
         height: 5vh;
     }
 
-    #matchCountSlider {
-        width: 20vw;
+    .arrow {
+        display: none;
     }
 }
