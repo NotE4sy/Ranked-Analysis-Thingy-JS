@@ -42,6 +42,12 @@ h2 {
 h3 {
     color: white;
     font-family: "Lexend";
+    font-size: 18px;
+    line-height: 1.4;
+}
+h4 {
+    color: white;
+    font-family: "Lexend";
     font-size: 14px;
     line-height: 1.4;
 }
@@ -251,44 +257,13 @@ button {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
 }
-.slider {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    width: 120px;
-    height: 20px;
-    border: none;
-    outline: none;
-}
-.slider::-webkit-slider-runnable-track {
-    background: #18232e;
-    height: 8px;
-    border-radius: 5px;
-}
-.slider::-moz-range-track {
-    background: #18232e;
-    height: 8px;
-    border-radius: 5px;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 20px;
-  width: 20px;
-  background: white;
-  border-radius: 50%;
-  margin-top: -6px;
-}
-.slider::-moz-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 20px;
-  width: 20px;
-  background: white;
-  border-radius: 50%;
-  margin-top: -6px;
+.matchCounters {
+    width: 100px; 
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 #loadingScreen {
     align-items: center;
@@ -318,6 +293,41 @@ button {
     margin-top: 20px;
     margin-left: 16px;
     display: none;
+}
+@media screen and (max-width:455px) {
+    h1 {
+        font-size: 6vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    h3 {
+        font-size: 3.5vw;
+    }
+
+    h4 {
+        font-size: 2.4vw;
+    }
+
+    input {
+        font-size: 24px;
+    }
+
+    .playerModel {
+        width: 28vw;
+        height: auto;
+    }
+
+    #nameplate, #nameplatePlayer1, #nameplatePlayer2 {
+        max-height: 14vh;
+    }
+}
+@media screen and (max-width:979px) {
+    .matchCounters {
+        gap: 8vw;
+    }
 }
 @media screen and (max-width:1023px) {
     .versusContainers {
@@ -355,31 +365,6 @@ button {
 
     #matchCountSlider {
         width: 20vw;
-    }
-
-    h1 {
-        font-size: 6vw;
-    }
-
-    h2 {
-        font-size: 4vw;
-    }
-
-    h3 {
-        font-size: 2.4vw;
-    }
-
-    input {
-        font-size: 24px;
-    }
-
-    .playerModel {
-        width: 28vw;
-        height: auto;
-    }
-
-    #nameplate, #nameplatePlayer1, #nameplatePlayer2 {
-        max-height: 14vh;
     }
 
     #configUI {
