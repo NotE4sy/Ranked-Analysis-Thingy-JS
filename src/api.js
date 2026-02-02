@@ -1,4 +1,3 @@
-// Calling APIs
 async function call_Ranked_GetMatch(matchID) {
     try {
         const response = await fetch("https://api.mcsrranked.com/matches/" + matchID);

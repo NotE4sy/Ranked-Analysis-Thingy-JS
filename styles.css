@@ -229,6 +229,15 @@ button {
     display: inline-block;
     padding: 3px;
 }
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
 .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
@@ -304,4 +313,14 @@ button {
     margin-top: 20px;
     margin-left: 16px;
     display: none;
+}
+#seedType {
+    background-color: #18232e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
 }
