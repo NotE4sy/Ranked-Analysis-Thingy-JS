@@ -4,6 +4,10 @@ let gamemodeColorLock = false;
 let gamemodeContentHover = false;
 let gamemodeButtonHover = false;
 
+let seedTypeButtonHover = false;
+let seedTypeButtonColorLock = false;
+let seedTypeContentHover = false;
+
 let versus_gamemodeColorLock1 = false;
 let versus_gamemodeColorLock2 = false;
 
@@ -198,6 +202,12 @@ const MatchCountChanger = document.getElementById("matchCountChanger");
 const MatchCount = document.getElementById("MatchCount");
 const MatchCountSlider = document.getElementById("matchCountSlider");
 
+const SeedTypeDiv = document.getElementById("seedTypeDiv");
+const SeedTypeButton = document.getElementById("seedTypeButton");
+const SeedTypeContent = document.getElementById("seedTypeContent");
+const SeedTypeItems = SeedTypeContent.querySelectorAll(".seedTypeItem");
+
+// Versus Elements
 const VersusButton = document.getElementById("versusButton");
 const VersusSearch = document.getElementById("versusSearch");
 const VersusSearchText = document.getElementById("versusSearchText");

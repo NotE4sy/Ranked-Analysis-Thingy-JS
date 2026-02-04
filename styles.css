@@ -314,7 +314,7 @@ button {
     margin-left: 16px;
     display: none;
 }
-#seedType {
+#seedTypeDiv {
     background-color: #18232e;
     display: flex;
     justify-content: center;
@@ -323,4 +323,25 @@ button {
     padding: 6px;
     width: 40px;
     height: 40px;
+}
+#seedTypeButton {
+    border-radius: 25px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#seedTypeContent {
+    background-color: #18232e;
+    outline: 8px solid #202F3D;
+    position: absolute;
+    top: 202px;
+    width: 50px;
+    border-radius: 25px;
+    border-bottom: 25px;
+    display: none;
+}
+#seedTypeItem {
+    background-color: #18232e;
 }

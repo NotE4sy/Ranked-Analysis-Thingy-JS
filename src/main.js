@@ -63,6 +63,41 @@ PlayerName.addEventListener("keydown", function(event) {
     }
 })
 
+// Seed Type Button
+SeedTypeButton.addEventListener("mouseover", function() {
+    seedTypeButtonHover = true
+    if (!seedTypeButtonColorLock) {
+        SeedTypeButton.style.backgroundColor = "#354e66";
+    }
+})
+
+SeedTypeButton.addEventListener("mouseout", function() {
+    seedTypeButtonHover = false
+    if (!seedTypeButtonColorLock) {
+        SeedTypeButton.style.backgroundColor = "#202F3D";
+    }
+})
+
+SeedTypeButton.addEventListener("click", function() {
+    SeedTypeButton.style.backgroundColor = "#507699";
+    if (SeedTypeContent.style.display == "block") {
+        SeedTypeContent.style.display = "none";
+        seedTypeButtonColorLock = false;
+        seedTypeButton.style.backgroundColor = "#354e66";
+    } else {
+        SeedTypeContent.style.display = "block";
+        seedTypeButtonColorLock = true;
+    }
+})
+
+SeedTypeContent.addEventListener("mouseover", function() {
+    seedTypeContentHover = true;
+})
+
+SeedTypeContent.addEventListener("mouseout", function() {
+    seedTypeContentHover = false;
+})
+
 // Gamemode button
 GamemodeButton.addEventListener("click", function() {
     GamemodeButton.style.backgroundColor = "#507699";
@@ -99,6 +134,25 @@ GamemodeContent.addEventListener("mouseover", function() {
 GamemodeContent.addEventListener("mouseout", function() {
     gamemodeContentHover = false;
 })
+
+// Seed Type Items
+for (let i = 0; i < SeedTypeItems.length; i++) {
+    if (SeedTypeItems[i].querySelector("img").src == SeedTypeButton.querySelector("img").src) {
+        SeedTypeItems[i].style.backgroundColor = "#507699";
+    }
+
+    SeedTypeItems[i].addEventListener("mouseover", function() {
+        if (SeedTypeItems[i].querySelector("img").src != SeedTypeButton.querySelector("img").src) {
+            SeedTypeItems[i].style.backgroundColor = "#354e66";
+        }
+    })
+
+    SeedTypeItems[i].addEventListener("mouseout", function() {
+        if (SeedTypeItems[i].querySelector("img").src != SeedTypeButton.querySelector("img").src) {
+            SeedTypeItems[i].style.backgroundColor = "#18232e";
+        }
+    })
+}
 
 // Gamemode Items
 for (let i = 0; i < GamemodeItems.length; i++) {
