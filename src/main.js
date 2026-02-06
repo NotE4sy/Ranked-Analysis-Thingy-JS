@@ -152,6 +152,39 @@ for (let i = 0; i < SeedTypeItems.length; i++) {
             SeedTypeItems[i].style.backgroundColor = "#18232e";
         }
     })
+
+    SeedTypeItems[i].addEventListener("click", function() {
+        seedTypeButtonColorLock = false;
+        seedTypeButtonHover = false;
+        SeedTypeContent.style.display = "none";
+        SeedTypeButton.style.backgroundColor = "#202F3D";
+        if (i == seedType[0]) return;
+        SeedTypeItems[i].style.backgroundColor = "#507699";
+        SeedTypeItems[seedType[0]].style.backgroundColor = "#18232e"
+        seedType[0] = i;
+        switch (i) {
+            case 0:
+                seedType[1] = "ALL";
+                break;
+            case 1:
+                seedType[1] = "BURIED_TREASURE";
+                break;
+            case 2:
+                seedType[1] = "VILLAGE";
+                break;
+            case 3:
+                seedType[1] = "SHIPWRECK";
+                break;
+            case 4:
+                seedType[1] = "DESERT_TEMPLE";
+                break;
+            case 5:
+                seedType[1] = "RUINED_PORTAL";
+                break;
+        }
+        displayStatsBySeedType();   
+        SeedTypeButton.querySelector("img").src = SeedTypeItems[i].querySelector("img").src;
+    })
 }
 
 // Gamemode Items
@@ -180,7 +213,7 @@ for (let i = 0; i < GamemodeItems.length; i++) {
         GamemodeButton.innerHTML = GamemodeButton.textContent + "<i style='float: right;margin-top: 3px;' class='arrow down'></i>";
         if (i + 1 == gamemode) return;
         GamemodeItems[i].style.backgroundColor = "#507699";
-        GamemodeItems[versus_gamemode2 - 1].style.backgroundColor = "#18232e";
+        GamemodeItems[gamemode - 1].style.backgroundColor = "#18232e";
         gamemode = i + 1; // Surely this works prayge
         GamemodeButton.innerHTML = gamemodes[i] + "<i style='float: right;margin-top: 3px;' class='arrow down'></i>";
         configureInVersusMode()

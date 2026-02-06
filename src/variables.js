@@ -4,6 +4,8 @@ let gamemodeColorLock = false;
 let gamemodeContentHover = false;
 let gamemodeButtonHover = false;
 
+let seedType = [0, "ALL"]; // 0 = All, 1 = bt, 2 = village, 3 = shipwreck, 4 = dt, 5 = rp
+
 let seedTypeButtonHover = false;
 let seedTypeButtonColorLock = false;
 let seedTypeContentHover = false;
@@ -58,57 +60,316 @@ let overworlds = {
 }
 
 let bastions = { // 0 = time, 1 = no. completed, 2 = no. entered, 3 = deaths, 4 = resets
-    "BRIDGE": [0, 0, 0, 0, 0],
-    "HOUSING": [0, 0, 0, 0, 0],
-    "STABLES": [0, 0, 0, 0, 0],
-    "TREASURE": [0, 0, 0, 0, 0]
+    "ALL": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    },
+    "BURIED_TREASURE": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    },
+    "VILLAGE": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    },
+    "SHIPWRECK": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    },
+    "DESERT_TEMPLE": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    },
+    "RUINED_PORTAL": {
+        "BRIDGE": [0, 0, 0, 0, 0],
+        "HOUSING": [0, 0, 0, 0, 0],
+        "STABLES": [0, 0, 0, 0, 0],
+        "TREASURE": [0, 0, 0, 0, 0]
+    }
 }
 
 let timings = {
-    "overworld": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
+    "ALL": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
     },
-    "nether": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
+    "BURIED_TREASURE": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
     },
-    "bastion": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
+    "VILLAGE": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
     },
-    "fortress": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
+    "SHIPWRECK": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
     },
-    "blind": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
+    "DESERT_TEMPLE": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
     },
-    "stronghold": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
-    },
-    "end": {
-        "splits": [0, 0],
-        "timestamps": [0, 0],
-        "deaths": 0,
-        "resets": 0
-    },
-    "completions": [0, 0]
-};
+    "RUINED_PORTAL": {
+        "overworld": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "nether": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "bastion": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "fortress": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "blind": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "stronghold": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "end": {
+            "splits": [0, 0],
+            "timestamps": [0, 0],
+            "deaths": 0,
+            "resets": 0
+        },
+        "completions": [0, 0]
+    }
+}
 
 let versus_overworlds2 = {
     "BURIED_TREASURE": [0, 0],

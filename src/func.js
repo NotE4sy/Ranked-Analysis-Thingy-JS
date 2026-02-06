@@ -157,3 +157,55 @@ async function accessVersusByURL(player1, player2) {
     LoadingText.style.display = "none";
     LoadingParrot.style.display = "none";
 }
+
+function displayStatsBySeedType() {
+    console.log(seedType[0]);
+    console.log(seedType[1]);
+    OverworldSplit.textContent = msToMinSecs(timings[seedType[1]]["overworld"]["splits"][0] / timings[seedType[1]]["overworld"]["splits"][1]) + " (" + timings[seedType[1]]["overworld"]["splits"][1] + ")";
+    NetherSplit.textContent = msToMinSecs(timings[seedType[1]]["nether"]["splits"][0] / timings[seedType[1]]["nether"]["splits"][1]) + " (" + timings[seedType[1]]["nether"]["splits"][1] + ")";
+    BastionSplit.textContent = msToMinSecs(timings[seedType[1]]["bastion"]["splits"][0] / timings[seedType[1]]["bastion"]["splits"][1]) + " (" + timings[seedType[1]]["bastion"]["splits"][1] + ")";
+    FortressSplit.textContent = msToMinSecs(timings[seedType[1]]["fortress"]["splits"][0] / timings[seedType[1]]["fortress"]["splits"][1]) + " (" + timings[seedType[1]]["fortress"]["splits"][1] + ")";
+    BlindSplit.textContent = msToMinSecs(timings[seedType[1]]["blind"]["splits"][0] / timings[seedType[1]]["blind"]["splits"][1]) + " (" + timings[seedType[1]]["blind"]["splits"][1] + ")";
+    StrongholdSplit.textContent = msToMinSecs(timings[seedType[1]]["stronghold"]["splits"][0] / timings[seedType[1]]["stronghold"]["splits"][1]) + " (" + timings[seedType[1]]["stronghold"]["splits"][1] + ")";
+    EndSplit.textContent = msToMinSecs(timings[seedType[1]]["end"]["splits"][0] / timings[seedType[1]]["end"]["splits"][1]) + " (" + timings[seedType[1]]["end"]["splits"][1] + ")";
+    CompletionSplits.textContent = msToMinSecs(timings[seedType[1]]["overworld"]["splits"][0] / timings[seedType[1]]["overworld"]["splits"][1] + timings[seedType[1]]["nether"]["splits"][0] / timings[seedType[1]]["nether"]["splits"][1] + timings[seedType[1]]["bastion"]["splits"][0] / timings[seedType[1]]["bastion"]["splits"][1] + timings[seedType[1]]["fortress"]["splits"][0] / timings[seedType[1]]["fortress"]["splits"][1] + timings[seedType[1]]["blind"]["splits"][0] / timings[seedType[1]]["blind"]["splits"][1] + timings[seedType[1]]["stronghold"]["splits"][0] / timings[seedType[1]]["stronghold"]["splits"][1] + timings[seedType[1]]["end"]["splits"][0] / timings[seedType[1]]["end"]["splits"][1]) + " (Splits)";
+    
+    OverworldDeaths.textContent = percentageCalc(timings[seedType[1]]["overworld"]["deaths"], timings[seedType[1]]["overworld"]["splits"][1]);
+    NetherDeaths.textContent = percentageCalc(timings[seedType[1]]["nether"]["deaths"], timings[seedType[1]]["nether"]["timestamps"][1]);
+    BastionDeaths.textContent = percentageCalc(timings[seedType[1]]["bastion"]["deaths"], timings[seedType[1]]["bastion"]["timestamps"][1]);
+    FortressDeaths.textContent = percentageCalc(timings[seedType[1]]["fortress"]["deaths"], timings[seedType[1]]["fortress"]["timestamps"][1]);
+    BlindDeaths.textContent = percentageCalc(timings[seedType[1]]["blind"]["deaths"], timings[seedType[1]]["blind"]["timestamps"][1]);
+    StrongholdDeaths.textContent = percentageCalc(timings[seedType[1]]["stronghold"]["deaths"], timings[seedType[1]]["stronghold"]["timestamps"][1]);
+    EndDeaths.textContent = percentageCalc(timings[seedType[1]]["end"]["deaths"], timings[seedType[1]]["end"]["timestamps"][1]);
+
+    OverworldResets.textContent = percentageCalc(timings[seedType[1]]["overworld"]["resets"], timings[seedType[1]]["overworld"]["splits"][1]);
+    NetherResets.textContent = percentageCalc(timings[seedType[1]]["nether"]["resets"], timings[seedType[1]]["nether"]["timestamps"][1]);
+    BastionResets.textContent = percentageCalc(timings[seedType[1]]["bastion"]["resets"], timings[seedType[1]]["bastion"]["timestamps"][1]);
+    FortressResets.textContent = percentageCalc(timings[seedType[1]]["fortress"]["resets"], timings[seedType[1]]["fortress"]["timestamps"][1]);
+    BlindResets.textContent = percentageCalc(timings[seedType[1]]["blind"]["resets"], timings[seedType[1]]["blind"]["timestamps"][1]);
+    StrongholdResets.textContent = percentageCalc(timings[seedType[1]]["stronghold"]["resets"], timings[seedType[1]]["stronghold"]["timestamps"][1]);
+    EndResets.textContent = percentageCalc(timings[seedType[1]]["end"]["resets"], timings[seedType[1]]["end"]["timestamps"][1]);
+
+    NetherTimestamp.textContent = msToMinSecs(timings[seedType[1]]["overworld"]["splits"][0] / timings[seedType[1]]["overworld"]["splits"][1]) + " (" + timings[seedType[1]]["overworld"]["splits"][1] + ")";
+    BastionTimestamp.textContent = msToMinSecs(timings[seedType[1]]["bastion"]["timestamps"][0] / timings[seedType[1]]["bastion"]["timestamps"][1]) + " (" + timings[seedType[1]]["bastion"]["timestamps"][1] + ")";
+    FortressTimestamp.textContent = msToMinSecs(timings[seedType[1]]["fortress"]["timestamps"][0] / timings[seedType[1]]["fortress"]["timestamps"][1]) + " (" + timings[seedType[1]]["fortress"]["timestamps"][1] + ")";
+    BlindTimestamp.textContent = msToMinSecs(timings[seedType[1]]["blind"]["timestamps"][0] / timings[seedType[1]]["blind"]["timestamps"][1]) + " (" + timings[seedType[1]]["blind"]["timestamps"][1] + ")";
+    StrongholdTimestamp.textContent = msToMinSecs(timings[seedType[1]]["stronghold"]["timestamps"][0] / timings[seedType[1]]["stronghold"]["timestamps"][1]) + " (" + timings[seedType[1]]["stronghold"]["timestamps"][1] + ")";
+    EndTimestamp.textContent = msToMinSecs(timings[seedType[1]]["end"]["timestamps"][0] / timings[seedType[1]]["end"]["timestamps"][1]) + " (" + timings[seedType[1]]["end"]["timestamps"][1] + ")";
+    AverageCompletion.textContent = msToMinSecs(timings[seedType[1]]["completions"][0] / timings[seedType[1]]["completions"][1]) + " (" + timings[seedType[1]]["completions"][1] + ")";
+
+    Bridge.textContent = msToMinSecs(bastions[seedType[1]]["BRIDGE"][0] / bastions[seedType[1]]["BRIDGE"][1]) + " (" + bastions[seedType[1]]["BRIDGE"][1] + ")";
+    Housing.textContent = msToMinSecs(bastions[seedType[1]]["HOUSING"][0] / bastions[seedType[1]]["HOUSING"][1]) + " (" + bastions[seedType[1]]["HOUSING"][1] + ")";
+    Stables.textContent = msToMinSecs(bastions[seedType[1]]["STABLES"][0] / bastions[seedType[1]]["STABLES"][1]) + " (" + bastions[seedType[1]]["STABLES"][1] + ")";
+    Treasure.textContent = msToMinSecs(bastions[seedType[1]]["TREASURE"][0] / bastions[seedType[1]]["TREASURE"][1]) + " (" + bastions[seedType[1]]["TREASURE"][1] + ")";
+
+    BridgeDeaths.textContent = percentageCalc(bastions[seedType[1]]["BRIDGE"][3], bastions[seedType[1]]["BRIDGE"][2]);
+    HousingDeaths.textContent = percentageCalc(bastions[seedType[1]]["HOUSING"][3], bastions[seedType[1]]["HOUSING"][2]);
+    StablesDeaths.textContent = percentageCalc(bastions[seedType[1]]["STABLES"][3], bastions[seedType[1]]["STABLES"][2]);
+    TreasureDeaths.textContent = percentageCalc(bastions[seedType[1]]["TREASURE"][3], bastions[seedType[1]]["TREASURE"][2]);
+
+    BridgeResets.textContent = percentageCalc(bastions[seedType[1]]["BRIDGE"][4], bastions[seedType[1]]["BRIDGE"][2]);
+    HousingResets.textContent = percentageCalc(bastions[seedType[1]]["HOUSING"][4], bastions[seedType[1]]["HOUSING"][2]);
+    StablesResets.textContent = percentageCalc(bastions[seedType[1]]["STABLES"][4], bastions[seedType[1]]["STABLES"][2]);
+    TreasureResets.textContent = percentageCalc(bastions[seedType[1]]["TREASURE"][4], bastions[seedType[1]]["TREASURE"][2]);
+}
