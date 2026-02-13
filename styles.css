@@ -342,6 +342,62 @@ button {
     border-bottom: 25px;
     display: none;
 }
-#seedTypeItem {
+.seedTypeItem {
     background-color: #18232e;
+}
+#versus_seedTypeDiv1 {
+    background-color: #18232e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+}
+#versus_seedTypeButton1 {
+    border-radius: 25px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#versus_seedTypeContent1 {
+    background-color: #18232e;
+    outline: 8px solid #202F3D;
+    position: absolute;
+    top: 202px;
+    width: 50px;
+    border-radius: 25px;
+    border-bottom: 25px;
+    display: none;
+}
+#versus_seedTypeDiv2 {
+    background-color: #18232e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+}
+#versus_seedTypeButton2{
+    border-radius: 25px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#versus_seedTypeContent2 {
+    background-color: #18232e;
+    outline: 8px solid #202F3D;
+    position: absolute;
+    top: 202px;
+    width: 50px;
+    border-radius: 25px;
+    border-bottom: 25px;
+    display: none;
 }

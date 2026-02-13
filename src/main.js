@@ -1,6 +1,5 @@
 // On Page load (if in a subdirectory)
 const currentPath = window.location.pathname.slice(1);
-console.log(window.location.pathname.slice(1));
 
 if (currentPath && currentPath != "versus") {
     ign = currentPath;
@@ -83,10 +82,11 @@ SeedTypeButton.addEventListener("click", function() {
     if (SeedTypeContent.style.display == "block") {
         SeedTypeContent.style.display = "none";
         seedTypeButtonColorLock = false;
-        seedTypeButton.style.backgroundColor = "#354e66";
+        SeedTypeButton.style.backgroundColor = "#202F3D";
     } else {
         SeedTypeContent.style.display = "block";
         seedTypeButtonColorLock = true;
+        console.log("Ww");
     }
 })
 
@@ -182,7 +182,7 @@ for (let i = 0; i < SeedTypeItems.length; i++) {
                 seedType[1] = "RUINED_PORTAL";
                 break;
         }
-        displayStatsBySeedType();   
+        displayStatsBySeedType();
         SeedTypeButton.querySelector("img").src = SeedTypeItems[i].querySelector("img").src;
     })
 }
@@ -230,6 +230,12 @@ document.addEventListener("keydown", function(event) {
             GamemodeButton.style.backgroundColor = "#202F3D";
             GamemodeButton.innerHTML = GamemodeButton.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
         }
+        if (SeedTypeContent.style.display == "block") {
+            event.preventDefault();
+            SeedTypeContent.style.display = "none";
+            seedTypeButtonColorLock = false;
+            SeedTypeButton.style.backgroundColor = "#202F3D";
+        }
         if (Versus_GamemodeContent1.style.display == "block") {
             event.preventDefault();
             Versus_GamemodeContent1.style.display = "none";
@@ -244,6 +250,18 @@ document.addEventListener("keydown", function(event) {
             Versus_GamemodeButton2.style.backgroundColor = "#202F3D";
             Versus_GamemodeButton2.innerHTML = Versus_GamemodeButton2.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
         }
+        if (Versus_SeedTypeContent1.style.display == "block") {
+            event.preventDefault();
+            Versus_SeedTypeContent1.style.display = "none";
+            versus_gamemodeColorLock1 = false;
+            Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+        }
+        if (Versus_SeedTypeContent2.style.display == "block") {
+            event.preventDefault();
+            Versus_SeedTypeContent2.style.display = "none";
+            versus_gamemodeColorLock2 = false;
+            Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
+        }
     }
 })
 
@@ -253,6 +271,12 @@ document.addEventListener("mouseup", function(event) {
         gamemodeColorLock = false;
         GamemodeButton.style.backgroundColor = "#202F3D";
         GamemodeButton.innerHTML = GamemodeButton.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
+    }
+    if (SeedTypeContent.style.display == "block") {
+        event.preventDefault();
+        SeedTypeContent.style.display = "none";
+        seedTypeButtonColorLock = false;
+        SeedTypeButton.style.backgroundColor = "#202F3D";
     }
     if (Versus_GamemodeContent1.style.display == "block" && !versus_gamemodeContentHover1 && !versus_gamemodeButtonHover1) {
         Versus_GamemodeContent1.style.display = "none";
@@ -265,6 +289,18 @@ document.addEventListener("mouseup", function(event) {
         versus_gamemodeColorLock2 = false;
         Versus_GamemodeButton2.style.backgroundColor = "#202F3D";
         Versus_GamemodeContent2.innerHTML = Versus_GamemodeContent2.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
+    }
+    if (Versus_SeedTypeContent1.style.display == "block") {
+        event.preventDefault();
+        Versus_SeedTypeContent1.style.display = "none";
+        versus_gamemodeColorLock1 = false;
+        Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+    }
+    if (Versus_SeedTypeContent2.style.display == "block") {
+        event.preventDefault();
+        Versus_SeedTypeContent2.style.display = "none";
+        versus_gamemodeColorLock2 = false;
+        Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
     }
 })
 
