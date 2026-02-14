@@ -352,6 +352,180 @@ Versus_GamemodeContent1.addEventListener("mouseout", function() {
     versus_gamemodeContentHover1 = false;
 })
 
+// Versus 1 Seed Type Button
+Versus_SeedTypeButton1.addEventListener("mouseover", function() {
+    versus_seedTypeButtonHover1 = true
+    if (!versus_seedTypeButtonColorLock1) {
+        Versus_SeedTypeButton1.style.backgroundColor = "#354e66";
+    }
+})
+
+Versus_SeedTypeButton1.addEventListener("mouseout", function() {
+    versus_seedTypeButtonHover1 = false
+    if (!versus_seedTypeButtonColorLock1) {
+        Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+    }
+})
+
+Versus_SeedTypeButton1.addEventListener("click", function() {
+    Versus_SeedTypeButton1.style.backgroundColor = "#507699";
+    if (Versus_SeedTypeContent1.style.display == "block") {
+        Versus_SeedTypeContent1.style.display = "none";
+        versus_seedTypeButtonColorLock1 = false;
+        Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+    } else {
+        Versus_SeedTypeContent1.style.display = "block";
+        versus_seedTypeButtonColorLock1 = true;
+    }
+})
+
+Versus_SeedTypeContent1.addEventListener("mouseover", function() {
+    versus_seedTypeContentHover1 = true;
+})
+
+Versus_SeedTypeContent1.addEventListener("mouseout", function() {
+    versus_seedTypeContentHover1 = false;
+})
+
+// Versus 1 Seed Type Items
+for (let i = 0; i < Versus_SeedTypeItems1.length; i++) {
+    if (Versus_SeedTypeItems1[i].querySelector("img").src == Versus_SeedTypeButton1.querySelector("img").src) {
+        Versus_SeedTypeItems1[i].style.backgroundColor = "#507699";
+    }
+
+    Versus_SeedTypeItems1[i].addEventListener("mouseover", function() {
+        if (Versus_SeedTypeItems1[i].querySelector("img").src != Versus_SeedTypeButton1.querySelector("img").src) {
+            Versus_SeedTypeItems1[i].style.backgroundColor = "#354e66";
+        }
+    })
+
+    Versus_SeedTypeItems1[i].addEventListener("mouseout", function() {
+        if (Versus_SeedTypeItems1[i].querySelector("img").src != Versus_SeedTypeButton1.querySelector("img").src) {
+            Versus_SeedTypeItems1[i].style.backgroundColor = "#18232e";
+        }
+    })
+
+    Versus_SeedTypeItems1[i].addEventListener("click", function() {
+        versus_seedTypeButtonColorLock1 = false;
+        versus_seedTypeButtonHover1 = false;
+        Versus_SeedTypeContent1.style.display = "none";
+        Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+        if (i == seedType[0]) return;
+        Versus_SeedTypeItems1[i].style.backgroundColor = "#507699";
+        Versus_SeedTypeItems1[seedType[0]].style.backgroundColor = "#18232e"
+        seedType[0] = i;
+        switch (i) {
+            case 0:
+                seedType[1] = "ALL";
+                break;
+            case 1:
+                seedType[1] = "BURIED_TREASURE";
+                break;
+            case 2:
+                seedType[1] = "VILLAGE";
+                break;
+            case 3:
+                seedType[1] = "SHIPWRECK";
+                break;
+            case 4:
+                seedType[1] = "DESERT_TEMPLE";
+                break;
+            case 5:
+                seedType[1] = "RUINED_PORTAL";
+                break;
+        }
+        versus_display_info(); 
+        Versus_SeedTypeButton1.querySelector("img").src = Versus_SeedTypeItems1[i].querySelector("img").src;
+    })
+}
+
+// Versus 2 Seed Type Button
+Versus_SeedTypeButton2.addEventListener("mouseover", function() {
+    versus_seedTypeButtonHover2 = true
+    if (!versus_seedTypeButtonColorLock2) {
+        Versus_SeedTypeButton2.style.backgroundColor = "#354e66";
+    }
+})
+
+Versus_SeedTypeButton2.addEventListener("mouseout", function() {
+    versus_seedTypeButtonHover2 = false
+    if (!versus_seedTypeButtonColorLock2) {
+        Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
+    }
+})
+
+Versus_SeedTypeButton2.addEventListener("click", function() {
+    Versus_SeedTypeButton2.style.backgroundColor = "#507699";
+    if (Versus_SeedTypeContent2.style.display == "block") {
+        Versus_SeedTypeContent2.style.display = "none";
+        versus_seedTypeButtonColorLock2 = false;
+        Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
+    } else {
+        Versus_SeedTypeContent2.style.display = "block";
+        versus_seedTypeButtonColorLock2 = true;
+    }
+})
+
+Versus_SeedTypeContent2.addEventListener("mouseover", function() {
+    versus_seedTypeContentHover2 = true;
+})
+
+Versus_SeedTypeContent2.addEventListener("mouseout", function() {
+    versus_seedTypeContentHover2 = false;
+})
+
+// Versus 2 Seed Type Items
+for (let i = 0; i < Versus_SeedTypeItems2.length; i++) {
+    if (Versus_SeedTypeItems2[i].querySelector("img").src == Versus_SeedTypeButton2.querySelector("img").src) {
+        Versus_SeedTypeItems2[i].style.backgroundColor = "#507699";
+    }
+
+    Versus_SeedTypeItems2[i].addEventListener("mouseover", function() {
+        if (Versus_SeedTypeItems2[i].querySelector("img").src != Versus_SeedTypeButton2.querySelector("img").src) {
+            Versus_SeedTypeItems2[i].style.backgroundColor = "#354e66";
+        }
+    })
+
+    Versus_SeedTypeItems2[i].addEventListener("mouseout", function() {
+        if (Versus_SeedTypeItems2[i].querySelector("img").src != Versus_SeedTypeButton2.querySelector("img").src) {
+            Versus_SeedTypeItems2[i].style.backgroundColor = "#18232e";
+        }
+    })
+
+    Versus_SeedTypeItems2[i].addEventListener("click", function() {
+        versus_seedTypeButtonColorLock2 = false;
+        versus_seedTypeButtonHover2 = false;
+        Versus_SeedTypeContent2.style.display = "none";
+        Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
+        if (i == versus_seedType2[0]) return;
+        Versus_SeedTypeItems2[i].style.backgroundColor = "#507699";
+        Versus_SeedTypeItems2[versus_seedType2[0]].style.backgroundColor = "#18232e"
+        versus_seedType2[0] = i;
+        switch (i) {
+            case 0:
+                versus_seedType2[1] = "ALL";
+                break;
+            case 1:
+                versus_seedType2[1] = "BURIED_TREASURE";
+                break;
+            case 2:
+                versus_seedType2[1] = "VILLAGE";
+                break;
+            case 3:
+                versus_seedType2[1] = "SHIPWRECK";
+                break;
+            case 4:
+                versus_seedType2[1] = "DESERT_TEMPLE";
+                break;
+            case 5:
+                versus_seedType2[1] = "RUINED_PORTAL";
+                break;
+        }
+        versus_display_info(); 
+        Versus_SeedTypeButton2.querySelector("img").src = Versus_SeedTypeItems2[i].querySelector("img").src;
+    })
+}
+
 // Versus 1 Gamemode Items
 for (let i = 0; i < Versus_GamemodeItems1.length; i++) {
     if (Versus_GamemodeItems1[i].textContent == Versus_GamemodeButton1.textContent) {
@@ -449,7 +623,7 @@ for (let i = 0; i < Versus_GamemodeItems2.length; i++) {
         if (i + 1 == versus_gamemode2) return;
         Versus_GamemodeItems2[i].style.backgroundColor = "#507699";
         Versus_GamemodeItems2[versus_gamemode2 - 1].style.backgroundColor = "#18232e";
-        versus_gamemode2 = i + 1; // Surely this works prayge
+        versus_gamemode2 = i + 1;
         Versus_GamemodeButton2.innerHTML = gamemodes[i] + "<i style='float: right;margin-top: 3px;' class='arrow down'></i>";
         versus_call_Ranked_GetUserMatches();
     })

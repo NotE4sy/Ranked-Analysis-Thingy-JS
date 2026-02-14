@@ -1,6 +1,5 @@
 // On Page load (if in a subdirectory)
 const currentPath = window.location.pathname.slice(1);
-console.log(window.location.pathname.slice(1));
 
 if (currentPath && currentPath != "versus") {
     ign = currentPath;
@@ -63,6 +62,42 @@ PlayerName.addEventListener("keydown", function(event) {
     }
 })
 
+// Seed Type Button
+SeedTypeButton.addEventListener("mouseover", function() {
+    seedTypeButtonHover = true
+    if (!seedTypeButtonColorLock) {
+        SeedTypeButton.style.backgroundColor = "#354e66";
+    }
+})
+
+SeedTypeButton.addEventListener("mouseout", function() {
+    seedTypeButtonHover = false
+    if (!seedTypeButtonColorLock) {
+        SeedTypeButton.style.backgroundColor = "#202F3D";
+    }
+})
+
+SeedTypeButton.addEventListener("click", function() {
+    SeedTypeButton.style.backgroundColor = "#507699";
+    if (SeedTypeContent.style.display == "block") {
+        SeedTypeContent.style.display = "none";
+        seedTypeButtonColorLock = false;
+        SeedTypeButton.style.backgroundColor = "#202F3D";
+    } else {
+        SeedTypeContent.style.display = "block";
+        seedTypeButtonColorLock = true;
+        console.log("Ww");
+    }
+})
+
+SeedTypeContent.addEventListener("mouseover", function() {
+    seedTypeContentHover = true;
+})
+
+SeedTypeContent.addEventListener("mouseout", function() {
+    seedTypeContentHover = false;
+})
+
 // Gamemode button
 GamemodeButton.addEventListener("click", function() {
     GamemodeButton.style.backgroundColor = "#507699";
@@ -100,6 +135,58 @@ GamemodeContent.addEventListener("mouseout", function() {
     gamemodeContentHover = false;
 })
 
+// Seed Type Items
+for (let i = 0; i < SeedTypeItems.length; i++) {
+    if (SeedTypeItems[i].querySelector("img").src == SeedTypeButton.querySelector("img").src) {
+        SeedTypeItems[i].style.backgroundColor = "#507699";
+    }
+
+    SeedTypeItems[i].addEventListener("mouseover", function() {
+        if (SeedTypeItems[i].querySelector("img").src != SeedTypeButton.querySelector("img").src) {
+            SeedTypeItems[i].style.backgroundColor = "#354e66";
+        }
+    })
+
+    SeedTypeItems[i].addEventListener("mouseout", function() {
+        if (SeedTypeItems[i].querySelector("img").src != SeedTypeButton.querySelector("img").src) {
+            SeedTypeItems[i].style.backgroundColor = "#18232e";
+        }
+    })
+
+    SeedTypeItems[i].addEventListener("click", function() {
+        seedTypeButtonColorLock = false;
+        seedTypeButtonHover = false;
+        SeedTypeContent.style.display = "none";
+        SeedTypeButton.style.backgroundColor = "#202F3D";
+        if (i == seedType[0]) return;
+        SeedTypeItems[i].style.backgroundColor = "#507699";
+        SeedTypeItems[seedType[0]].style.backgroundColor = "#18232e"
+        seedType[0] = i;
+        switch (i) {
+            case 0:
+                seedType[1] = "ALL";
+                break;
+            case 1:
+                seedType[1] = "BURIED_TREASURE";
+                break;
+            case 2:
+                seedType[1] = "VILLAGE";
+                break;
+            case 3:
+                seedType[1] = "SHIPWRECK";
+                break;
+            case 4:
+                seedType[1] = "DESERT_TEMPLE";
+                break;
+            case 5:
+                seedType[1] = "RUINED_PORTAL";
+                break;
+        }
+        displayStatsBySeedType();
+        SeedTypeButton.querySelector("img").src = SeedTypeItems[i].querySelector("img").src;
+    })
+}
+
 // Gamemode Items
 for (let i = 0; i < GamemodeItems.length; i++) {
     if (GamemodeItems[i].textContent == GamemodeButton.textContent) {
@@ -126,7 +213,7 @@ for (let i = 0; i < GamemodeItems.length; i++) {
         GamemodeButton.innerHTML = GamemodeButton.textContent + "<i style='float: right;margin-top: 3px;' class='arrow down'></i>";
         if (i + 1 == gamemode) return;
         GamemodeItems[i].style.backgroundColor = "#507699";
-        GamemodeItems[versus_gamemode2 - 1].style.backgroundColor = "#18232e";
+        GamemodeItems[gamemode - 1].style.backgroundColor = "#18232e";
         gamemode = i + 1; // Surely this works prayge
         GamemodeButton.innerHTML = gamemodes[i] + "<i style='float: right;margin-top: 3px;' class='arrow down'></i>";
         configureInVersusMode()
@@ -143,6 +230,12 @@ document.addEventListener("keydown", function(event) {
             GamemodeButton.style.backgroundColor = "#202F3D";
             GamemodeButton.innerHTML = GamemodeButton.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
         }
+        if (SeedTypeContent.style.display == "block") {
+            event.preventDefault();
+            SeedTypeContent.style.display = "none";
+            seedTypeButtonColorLock = false;
+            SeedTypeButton.style.backgroundColor = "#202F3D";
+        }
         if (Versus_GamemodeContent1.style.display == "block") {
             event.preventDefault();
             Versus_GamemodeContent1.style.display = "none";
@@ -157,6 +250,18 @@ document.addEventListener("keydown", function(event) {
             Versus_GamemodeButton2.style.backgroundColor = "#202F3D";
             Versus_GamemodeButton2.innerHTML = Versus_GamemodeButton2.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
         }
+        if (Versus_SeedTypeContent1.style.display == "block") {
+            event.preventDefault();
+            Versus_SeedTypeContent1.style.display = "none";
+            versus_gamemodeColorLock1 = false;
+            Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+        }
+        if (Versus_SeedTypeContent2.style.display == "block") {
+            event.preventDefault();
+            Versus_SeedTypeContent2.style.display = "none";
+            versus_gamemodeColorLock2 = false;
+            Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
+        }
     }
 })
 
@@ -166,6 +271,12 @@ document.addEventListener("mouseup", function(event) {
         gamemodeColorLock = false;
         GamemodeButton.style.backgroundColor = "#202F3D";
         GamemodeButton.innerHTML = GamemodeButton.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
+    }
+    if (SeedTypeContent.style.display == "block") {
+        event.preventDefault();
+        SeedTypeContent.style.display = "none";
+        seedTypeButtonColorLock = false;
+        SeedTypeButton.style.backgroundColor = "#202F3D";
     }
     if (Versus_GamemodeContent1.style.display == "block" && !versus_gamemodeContentHover1 && !versus_gamemodeButtonHover1) {
         Versus_GamemodeContent1.style.display = "none";
@@ -178,6 +289,18 @@ document.addEventListener("mouseup", function(event) {
         versus_gamemodeColorLock2 = false;
         Versus_GamemodeButton2.style.backgroundColor = "#202F3D";
         Versus_GamemodeContent2.innerHTML = Versus_GamemodeContent2.textContent + '<i style="float: right;margin-top: 3px;" class="arrow down"></i>';
+    }
+    if (Versus_SeedTypeContent1.style.display == "block") {
+        event.preventDefault();
+        Versus_SeedTypeContent1.style.display = "none";
+        versus_gamemodeColorLock1 = false;
+        Versus_SeedTypeButton1.style.backgroundColor = "#202F3D";
+    }
+    if (Versus_SeedTypeContent2.style.display == "block") {
+        event.preventDefault();
+        Versus_SeedTypeContent2.style.display = "none";
+        versus_gamemodeColorLock2 = false;
+        Versus_SeedTypeButton2.style.backgroundColor = "#202F3D";
     }
 })
 
